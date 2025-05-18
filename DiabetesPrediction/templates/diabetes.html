@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: larger;
+    }
+    .container{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        background-color:blanchedalmond;
+        width:600px;
+        height:600px;
+        border:1px solid black;
+        border-radius: 10px;
+        box-shadow: 0 0 5px black,0 0 10px black,0 0 15px black,0 0 20px black;
+    }
+    label{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        margin-bottom: 10px;
+        align-items: center;
+    }
+    input[type='text']{
+        border-radius:10px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        padding:5px;
+        width: 200px;
+            }
+    
+    button{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        width: 150px;
+        height:40px;
+        padding:5px;
+        border-radius: 10px;
+        margin:50px;/*spaces between the above line to this*/
+        
+    }
+    button:hover{
+        box-shadow: 0 0 5px black,0 0 10px black,0 0 15px black,0 0 20px black;
+        background-color: deeppink;
+    }
+    
+    
+</style>
+<body><center><form method="POST"><div  class="container">
+    {% csrf_token %}
+    <h1>Diabetes Prediction</h1><br><div class ='form-group'>
+    <label>Pregnancies</label>
+    <input type="text" name="pregnancies" placeholder="Pregnancies"><br><br>
+    <label>Glucose</label>
+    <input type="text" name="glucose" placeholder="glucose"><br><br>
+    <label>BloodPressure</label>
+    <input type="text" name="bloodpressure" placeholder="bloodpressure"><br><br>
+    <label>SkinThickness</label>
+    <input type="text" name="skinthickness" placeholder="skinthickness"><br><br>
+    <label>Insulin</label>
+    <input type="text" name="insulin" placeholder="insulin"><br><br>
+    <label>Bmi</label>
+    <input type="text" name="bmi" placeholder="bmi"><br><br>
+    <label>DiabetesPedigreeFunction</label>
+    <input type="text" name="diabetespedigreefunction" placeholder="diabetespedigreefunction"><br><br>
+    <label>Age</label>
+    <input type="text" name="age" placeholder="age"><br><br>
+    <button type="predict">Predict</button><br><br></div>
+    {% if prediction %}
+    <h3> Checking if the person have diabetes(yes-1 No-0)  :  {{prediction}}</h3>
+    {% endif %}
+
+</div>
+</form></center>
+</body>
+</html>
